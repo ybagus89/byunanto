@@ -14,8 +14,14 @@
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     margin: 0;
     scroll-behavior: smooth;
-    background: #f9f9f9;
+    background: linear-gradient(120deg, #f9f9f9, #e0e0e0);
+    animation: gradient 5s infinite alternate;
     color: #333;
+  }
+
+  @keyframes gradient {
+    0% { background: linear-gradient(120deg, #f9f9f9, #e0e0e0); }
+    100% { background: linear-gradient(120deg, #e0e0e0, #f9f9f9); }
   }
 
   /* Navigation */
@@ -65,7 +71,9 @@
 
   nav a:hover,
   nav a:focus {
-    text-decoration: underline;
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 4px;
+    transition: background 0.3s ease;
   }
 
   nav a.active {
@@ -73,22 +81,13 @@
     border-radius: 4px;
   }
 
-  /* Hamburger menu for mobile */
-  .menu-toggle {
-    display: none;
-    flex-direction: column;
-    cursor: pointer;
+  /* Main content */
+  main {
+    padding: 2rem;
+    max-width: 900px;
+    margin-left: 250px;
   }
 
-  .menu-toggle span {
-    background: white;
-    height: 3px;
-    width: 25px;
-    margin: 4px 0;
-    border-radius: 2px;
-  }
-
-  /* Mobile menu */
   @media (max-width: 768px) {
     nav {
       width: 100%;
@@ -97,10 +96,6 @@
       justify-content: space-between;
       align-items: center;
       padding: 0 1rem;
-    }
-
-    nav .logo {
-      margin-bottom: 0;
     }
 
     nav ul {
@@ -118,24 +113,6 @@
       transform: translateX(0);
     }
 
-    nav li {
-      margin: 0;
-      padding: 0.8rem 1.5rem;
-    }
-
-    .menu-toggle {
-      display: flex;
-    }
-  }
-
-  /* Main content */
-  main {
-    padding: 2rem;
-    max-width: 900px;
-    margin-left: 250px;
-  }
-
-  @media (max-width: 768px) {
     main {
       margin-left: 0;
       padding: 70px 1rem 2rem;
@@ -148,14 +125,12 @@
     padding: 1.5rem;
     border-radius: 6px;
     box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-    display: none; /* Hide all sections initially */
     opacity: 0;
     transform: translateY(20px);
-    transition: opacity 0.5s ease, transform 0.5s ease;
+    transition: opacity 0.6s ease, transform 0.6s ease;
   }
 
-  section[style*="display: block"] {
-    display: block;
+  section.in-view {
     opacity: 1;
     transform: translateY(0);
   }
@@ -177,55 +152,39 @@
     text-decoration: underline;
   }
 
-  /* Contact form */
-  form {
-    display: flex;
-    flex-direction: column;
-  }
-
-  input, textarea {
-    padding: 10px;
-    margin: 5px 0 15px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    font-family: inherit;
-    font-size: 1rem;
-  }
-
-  button {
+  /* Back-to-top button */
+  #back-to-top {
+    display: none;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
     background: #4CAF50;
     color: white;
-    font-size: 1rem;
     border: none;
-    padding: 12px;
+    padding: 10px 15px;
     border-radius: 5px;
     cursor: pointer;
-    transition: background 0.3s ease;
   }
 
-  button:hover {
-    background: #45a049;
+  /* Dark mode */
+  body.dark-mode {
+    background: #333;
+    color: #fff;
   }
 
-  /* Ensure portfolio fits well on mobile 350px width and 600px height */
-  @media (max-width: 400px) {
-    main {
-      padding: 70px 0.5rem 1rem;
-      width: 95%;
-    }
+  body.dark-mode nav {
+    background: #222;
   }
 
+  body.dark-mode a {
+    color: #4CAF50;
+  }
 </style>
 </head>
 <body>
 
 <nav>
   <div class="logo">Bagus Yunanto</div>
-  <div class="menu-toggle" aria-label="Toggle menu" tabindex="0" role="button">
-    <span></span>
-    <span></span>
-    <span></span>
-  </div>
   <ul>
     <li><a href="#about" tabindex="1">About</a></li>
     <li><a href="#education" tabindex="2">Education</a></li>
@@ -240,7 +199,7 @@
 </nav>
 
 <main>
-  <section id="about" tabindex="0" style="display: block;">
+  <section id="about" tabindex="0">
     <h2>About Me</h2>
     <p>Ph.D(Eng) graduate in Mechatronics from Tokyo Metropolitan University, with over 5 years of experience in research, teaching, and technical support in robotics, embedded systems, and IoT solutions.</p>
   </section>
@@ -257,89 +216,67 @@
 
   <section id="publications" tabindex="0">
     <h2>Publications</h2>
-
-    <!-- Journal Publications -->
-    <h3>Journal Publications</h3>
     <ul>
-      <li>
-        Bagus Yunanto, Naoyuki Takesue: Development of Fins for Underwater Robots with 3D Printer and Experimental Evaluation, 
-        <i>Journal of Robotics and Mechatronics</i>, Vol.37, No.1, pp.212-221, February 2025. 
-        DOI: <a href="https://doi.org/10.20965/jrm.2025.p0212" target="_blank">10.20965/jrm.2025.p0212</a>
-      </li>
-      <li>
-        Bagus Yunanto, Naoyuki Takesue: Experimental Development of Fins for Underwater Robots, 
-        <i>Journal of Robotics and Mechatronics</i>, Vol.35, No.6, pp.1638-1644, December 2023. 
-        DOI: <a href="https://doi.org/10.20965/jrm.2023.p1638" target="_blank">10.20965/jrm.2023.p1638</a>
-      </li>
-    </ul>
-
-    <!-- Conference Publications -->
-    <h3>Conference Publications</h3>
-    <ul>
-      <li>
-        Bagus Yunanto, Naoyuki Takesue: Development of Fins for Underwater Robots with 3D Printer and Experimental Evaluation, 
-        <i>The 6th International Conference on Innovation in Science and Technology (ICIST2024)</i>, JRM01, December 5, 2024. 
-        (The paper will be published in JRM Vol.37, No.1, February 2025)
-      </li>
-      <li>
-        Bagus Yunanto, Naoyuki Takesue: Experimental Development of Fins for Underwater Robots, 
-        <i>The 5th International Conference on Innovation in Science and Technology (ICIST2023)</i>, B-JRM03, December 14, 2023. 
-        (The paper will be published in JRM Vol.35, No.6, December 2023)
-      </li>
-      <li>
-        Bagus Yunanto, Mao Ichimura, Asami Amemiya, Naoyuki Takesue: Dynamic modeling and experiment of robot with fins, 
-        日本機械学会ロボティクス・メカトロニクス講演会2023講演論文集, 1P1-B17, 2 pages, June 29, 2023. 
-        DOI: <a href="https://doi.org/10.1299/jsmermd.2023.1P1-B17" target="_blank">10.1299/jsmermd.2023.1P1-B17</a>
-      </li>
-      <li>
-        雨宮朝海, ユナント・バグス, 武居直行: 下水道施設の点検に向けた進行波生成により推進するひれロボットの開発, 
-        日本機械学会ロボティクス・メカトロニクス講演会2023講演論文集, 1A1-H16, 2 pages, June 29, 2023.
-      </li>
-      <li>
-        Mao Ichimura, Bagus Yunanto, Naoyuki Takesue: Development of Aquatic Survey Robot with Four Fins for Underwater Environment with Floating Objects, 
-        <i>Proc. KSME/JSME The 9th International Conference on Manufacturing, Machine Design and Tribology (ICMDT2023)</i>, FrPS-17, March 10, 2023.
-      </li>
-      <li>
-        市村真麻, バグース ユナント, 武居直行: 浮遊物を有する水中環境に向けたヒレ駆動水上調査ロボットの開発, 
-        第23回計測自動制御学会システムインテグレーション部門講演会(SI2022)論文集, 1P2-H09, 2 pages, December 14, 2022.
-      </li>
-    <ul>
-      <li>Bagus Yunanto, Naoyuki Takesue: Development of Fins for Underwater Robots with 3D Printer and Experimental Evaluation, <i>Journal of Robotics and Mechatronics</i>, Vol.37, No.1, pp.212-221, 2025/2. DOI: 10.20965/jrm.2025.p0212</li>
-      <li>Bagus Yunanto, Naoyuki Takesue: Experimental Development of Fins for Underwater Robots, <i>Journal of Robotics and Mechatronics</i>, Vol.35, No.6, pp.1638-1644, 2023/12. DOI: 10.20965/jrm.2023.p1638</li>
-      <li>Bagus Yunanto, Naoyuki Takesue: Development of Fins for Underwater Robots with 3D Printer and Experimental Evaluation, <i>The 6th International Conference on Innovation in Science and Technology (ICIST2024)</i>, JRM01, 2024/12/5.</li>
-      <li>Bagus Yunanto, Naoyuki Takesue: Experimental Development of Fins for Underwater Robots, <i>The 5th International Conference on Innovation in Science and Technology (ICIST2023)</i>, B-JRM03, 2023/12/14.</li>
-      <li>Bagus Yunanto, Mao Ichimura, Asami Amemiya, Naoyuki Takesue: Dynamic modeling and experiment of robot with fins, 日本機械学会ロボティクス・メカトロニクス講演会2023講演論文集, 1P1-B17, 2 pages, 2023/6/29. DOI: 10.1299/jsmermd.2023.1P1-B17</li>
+      <li>Bagus Yunanto, Naoyuki Takesue: Development of Fins for Underwater Robots with 3D Printer and Experimental Evaluation, <i>Journal of Robotics and Mechatronics</i>, Vol.37, No.1, pp.212-221, February 2025. DOI: <a href="https://doi.org/10.20965/jrm.2025.p0212" target="_blank">10.20965/jrm.2025.p0212</a></li>
     </ul>
   </section>
 </main>
+
+<button id="back-to-top">Top</button>
+<button id="dark-mode-toggle" style="position: fixed; top: 20px; right: 20px;">Dark Mode</button>
 
 <script>
 document.addEventListener('DOMContentLoaded', () => {
   const menuLinks = document.querySelectorAll('nav a');
   const sections = document.querySelectorAll('main section');
+  const backToTop = document.getElementById('back-to-top');
+  const darkModeToggle = document.getElementById('dark-mode-toggle');
 
-  // Initially hide all sections except the first one
-  sections.forEach((section, index) => {
-    section.style.display = index === 0 ? 'block' : 'none';
-  });
-
-  // Add click event to menu links
-  menuLinks.forEach(link => {
-    link.addEventListener('click', (e) => {
-      e.preventDefault();
-      const targetId = link.getAttribute('href').substring(1);
-      const targetSection = document.getElementById(targetId);
-
-      // Hide all sections and show the target section
-      sections.forEach(section => {
-        section.style.display = section.id === targetId ? 'block' : 'none';
-      });
-
-      // Highlight the active menu item
-      menuLinks.forEach(link => link.classList.remove('active'));
-      link.classList.add('active');
+  // Smooth scrolling and active menu highlighting
+  window.addEventListener('scroll', () => {
+    let current = '';
+    sections.forEach(section => {
+      const sectionTop = section.offsetTop - 100;
+      if (pageYOffset >= sectionTop) {
+        current = section.getAttribute('id');
+      }
     });
+
+    menuLinks.forEach(link => {
+      link.classList.remove('active');
+      if (link.getAttribute('href').substring(1) === current) {
+        link.classList.add('active');
+      }
+    });
+
+    // Show/hide back-to-top button
+    if (window.scrollY > 300) {
+      backToTop.style.display = 'block';
+    } else {
+      backToTop.style.display = 'none';
+    }
   });
+
+  // Back-to-top button functionality
+  backToTop.addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+
+  // Dark mode toggle
+  darkModeToggle.addEventListener('click', () => {
+    document.body.classList.toggle('dark-mode');
+  });
+
+  // Section animations
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('in-view');
+      }
+    });
+  }, { threshold: 0.1 });
+
+  sections.forEach(section => observer.observe(section));
 });
 </script>
 

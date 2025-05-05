@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Bagus Yunanto - Portfolio</title>
+<style>
+  /* Reset */
+  * {
+    box-sizing: border-box;
+  }
+
+  body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    scroll-behavior: smooth;
+    background: #f9f9f9;
+    color: #333;
+  }
+
+  /* Navigation */
+  nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 250px;
+    height: 100vh;
+    background: #4CAF50;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 1.5rem;
+    z-index: 1000;
+  }
+
+  nav .logo {
+    color: white;
+    font-weight: bold;
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+    width: 100%;
+  }
+
+  nav ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+  }
+
+  nav li {
+    margin: 0.8rem 0;
+    width: 100%;
+  }
+
+  nav a {
+    text-decoration: none;
+    color: white;
+    font-weight: 600;
+    display: block;
+    padding: 0.5rem 0;
+  }
+
+  nav a:hover,
+  nav a:focus {
+    text-decoration: underline;
+  }
+
+  /* Hamburger menu for mobile */
+  .menu-toggle {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+  }
+
+  .menu-toggle span {
+    background: white;
+    height: 3px;
+    width: 25px;
+    margin: 4px 0;
+    border-radius: 2px;
+  }
+
+  /* Mobile menu */
+  @media (max-width: 768px) {
+    nav {
+      width: 100%;
+      height: 56px;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 1rem;
+    }
+
+    nav .logo {
+      margin-bottom: 0;
+    }
+
+    nav ul {
+      position: fixed;
+      top: 56px;
+      left: 0;
+      background: #4CAF50;
+      height: calc(100vh - 56px);
+      width: 250px;
+      transform: translateX(-100%);
+      transition: transform 0.3s ease-in-out;
+    }
+
+    nav ul.active {
+      transform: translateX(0);
+    }
+
+    nav li {
+      margin: 0;
+      padding: 0.8rem 1.5rem;
+    }
+
+    .menu-toggle {
+      display: flex;
+    }
+  }
+
+  /* Main content */
+  main {
+    padding: 2rem;
+    max-width: 900px;
+    margin-left: 250px;
+  }
+
+  @media (max-width: 768px) {
+    main {
+      margin-left: 0;
+      padding: 70px 1rem 2rem;
+    }
+  }
+
+  section {
+    margin-bottom: 2rem;
+    background: white;
+    padding: 1.5rem;
+    border-radius: 6px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  }
+
+  h1, h2 {
+    color: #4CAF50;
+  }
+
+  ul {
+    padding-left: 1.2rem;
+  }
+
+  a {
+    color: #4CAF50;
+    text-decoration: none;
+  }
+
+  a:hover, a:focus {
+    text-decoration: underline;
+  }
+
+  /* Contact form */
+  form {
+    display: flex;
+    flex-direction: column;
+  }
+
+  input, textarea {
+    padding: 10px;
+    margin: 5px 0 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-family: inherit;
+    font-size: 1rem;
+  }
+
+  button {
+    background: #4CAF50;
+    color: white;
+    font-size: 1rem;
+    border: none;
+    padding: 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+  }
+
+  button:hover {
+    background: #45a049;
+  }
+
+  /* Ensure portfolio fits well on mobile 350px width and 600px height */
+  @media (max-width: 400px) {
+    main {
+      padding: 70px 0.5rem 1rem;
+      width: 95%;
+    }
+  }
+
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="logo">Bagus Yunanto</div>
+  <div class="menu-toggle" aria-label="Toggle menu" tabindex="0" role="button">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+  <ul>
+    <li><a href="#about" tabindex="1">About</a></li>
+    <li><a href="#education" tabindex="2">Education</a></li>
+    <li><a href="#publications" tabindex="3">Publications</a></li>
+    <li><a href="#experience" tabindex="4">Experience</a></li>
+    <li><a href="#projects" tabindex="5">Projects</a></li>
+    <li><a href="#skills" tabindex="6">Skills</a></li>
+    <li><a href="#languages" tabindex="7">Languages</a></li>
+    <li><a href="#achievements" tabindex="8">Achievements</a></li>
+    <li><a href="#contact" tabindex="9">Contact</a></li>
+  </ul>
+</nav>
+
+<main>
+  <section id="about" tabindex="0">
+    <h2>About Me</h2>
+    <p>Ph.D(Eng) graduate in Mechatronics from Tokyo Metropolitan University, with over 5 years of experience in research, teaching, and technical support in robotics, embedded systems, and IoT solutions.</p>
+  </section>
+
+  <section id="education" tabindex="0">
+    <h2>Education</h2>
+    <ul>
+      <li>PhD(Eng) in Mechatronics Engineering, Tokyo Metropolitan University (2021 - 2025)</li>
+      <li>M.Eng, Electronic Engineering, Politeknik Elektronika Negeri Surabaya (2014 - 2018)</li>
+      <li>B.Eng, Electronic Engineering, Universitas Semarang (2011 - 2013)</li>
+      <li>Diploma in Electronic Engineering, Politeknik Negeri Semarang (2006 - 2009)</li>
+    </ul>
+  </section>
+
+  <section id="publications" tabindex="0">
+    <h2>Publications</h2>
+    <ul>
+      <li>Bagus Yunanto, Naoyuki Takesue: Development of Fins for Underwater Robots with 3D Printer and Experimental Evaluation, <i>Journal of Robotics and Mechatronics</i>, Vol.37, No.1, pp.212-221, 2025/2. DOI: 10.20965/jrm.2025.p0212</li>
+      <li>Bagus Yunanto, Naoyuki Takesue: Experimental Development of Fins for Underwater Robots, <i>Journal of Robotics and Mechatronics</i>, Vol.35, No.6, pp.1638-1644, 2023/12. DOI: 10.20965/jrm.2023.p1638</li>
+      <li>Bagus Yunanto, Naoyuki Takesue: Development of Fins for Underwater Robots with 3D Printer and Experimental Evaluation, <i>The 6th International Conference on Innovation in Science and Technology (ICIST2024)</i>, JRM01, 2024/12/5.</li>
+      <li>Bagus Yunanto, Naoyuki Takesue: Experimental Development of Fins for Underwater Robots, <i>The 5th International Conference on Innovation in Science and Technology (ICIST2023)</i>, B-JRM03, 2023/12/14.</li>
+      <li>Bagus Yunanto, Mao Ichimura, Asami Amemiya, Naoyuki Takesue: Dynamic modeling and experiment of robot with fins, 日本機械学会ロボティクス・メカトロニクス講演会2023講演論文集, 1P1-B17, 2 pages, 2023/6/29. DOI: 10.1299/jsmermd.2023.1P1-B17</li>
+    </ul>
+  </section>
+</main>
+
+</body>
+</html>

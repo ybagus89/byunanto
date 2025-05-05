@@ -19,17 +19,17 @@
   }
 
   /* Navigation */
-
   nav {
     position: fixed;
     top: 0;
-    width: 100%;
+    left: 0;
+    width: 250px;
+    height: 100vh;
     background: #4CAF50;
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0 1rem;
-    height: 56px;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 1.5rem;
     z-index: 1000;
   }
 
@@ -37,23 +37,30 @@
     color: white;
     font-weight: bold;
     font-size: 1.2rem;
+    margin-bottom: 2rem;
+    width: 100%;
   }
 
   nav ul {
     list-style: none;
     display: flex;
+    flex-direction: column;
     margin: 0;
     padding: 0;
+    width: 100%;
   }
 
   nav li {
-    margin-left: 1.2rem;
+    margin: 0.8rem 0;
+    width: 100%;
   }
 
   nav a {
     text-decoration: none;
     color: white;
     font-weight: 600;
+    display: block;
+    padding: 0.5rem 0;
   }
 
   nav a:hover,
@@ -78,15 +85,27 @@
 
   /* Mobile menu */
   @media (max-width: 768px) {
+    nav {
+      width: 100%;
+      height: 56px;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 1rem;
+    }
+
+    nav .logo {
+      margin-bottom: 0;
+    }
+
     nav ul {
       position: fixed;
       top: 56px;
-      right: 0;
+      left: 0;
       background: #4CAF50;
       height: calc(100vh - 56px);
-      width: 200px;
-      flex-direction: column;
-      transform: translateX(100%);
+      width: 250px;
+      transform: translateX(-100%);
       transition: transform 0.3s ease-in-out;
     }
 
@@ -95,7 +114,8 @@
     }
 
     nav li {
-      margin: 1.5rem;
+      margin: 0;
+      padding: 0.8rem 1.5rem;
     }
 
     .menu-toggle {
@@ -105,9 +125,16 @@
 
   /* Main content */
   main {
-    padding: 70px 1rem 2rem;
+    padding: 2rem;
     max-width: 900px;
-    margin: auto;
+    margin-left: 250px;
+  }
+
+  @media (max-width: 768px) {
+    main {
+      margin-left: 0;
+      padding: 70px 1rem 2rem;
+    }
   }
 
   section {
@@ -221,4 +248,9 @@
       <li>Bagus Yunanto, Naoyuki Takesue: Development of Fins for Underwater Robots with 3D Printer and Experimental Evaluation, <i>The 6th International Conference on Innovation in Science and Technology (ICIST2024)</i>, JRM01, 2024/12/5.</li>
       <li>Bagus Yunanto, Naoyuki Takesue: Experimental Development of Fins for Underwater Robots, <i>The 5th International Conference on Innovation in Science and Technology (ICIST2023)</i>, B-JRM03, 2023/12/14.</li>
       <li>Bagus Yunanto, Mao Ichimura, Asami Amemiya, Naoyuki Takesue: Dynamic modeling and experiment of robot with fins, 日本機械学会ロボティクス・メカトロニクス講演会2023講演論文集, 1P1-B17, 2 pages, 2023/6/29. DOI: 10.1299/jsmermd.2023.1P1-B17</li>
-      
+    </ul>
+  </section>
+</main>
+
+</body>
+</html>

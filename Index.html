@@ -68,6 +68,11 @@
     text-decoration: underline;
   }
 
+  nav a.active {
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 4px;
+  }
+
   /* Hamburger menu for mobile */
   .menu-toggle {
     display: none;
@@ -143,6 +148,16 @@
     padding: 1.5rem;
     border-radius: 6px;
     box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    display: none; /* Hide all sections initially */
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+  }
+
+  section[style*="display: block"] {
+    display: block;
+    opacity: 1;
+    transform: translateY(0);
   }
 
   h1, h2 {
@@ -225,7 +240,7 @@
 </nav>
 
 <main>
-  <section id="about" tabindex="0">
+  <section id="about" tabindex="0" style="display: block;">
     <h2>About Me</h2>
     <p>Ph.D(Eng) graduate in Mechatronics from Tokyo Metropolitan University, with over 5 years of experience in research, teaching, and technical support in robotics, embedded systems, and IoT solutions.</p>
   </section>
@@ -251,6 +266,36 @@
     </ul>
   </section>
 </main>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const menuLinks = document.querySelectorAll('nav a');
+  const sections = document.querySelectorAll('main section');
+
+  // Initially hide all sections except the first one
+  sections.forEach((section, index) => {
+    section.style.display = index === 0 ? 'block' : 'none';
+  });
+
+  // Add click event to menu links
+  menuLinks.forEach(link => {
+    link.addEventListener('click', (e) => {
+      e.preventDefault();
+      const targetId = link.getAttribute('href').substring(1);
+      const targetSection = document.getElementById(targetId);
+
+      // Hide all sections and show the target section
+      sections.forEach(section => {
+        section.style.display = section.id === targetId ? 'block' : 'none';
+      });
+
+      // Highlight the active menu item
+      menuLinks.forEach(link => link.classList.remove('active'));
+      link.classList.add('active');
+    });
+  });
+});
+</script>
 
 </body>
 </html>

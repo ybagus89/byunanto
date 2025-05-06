@@ -17,7 +17,8 @@
     font-family: 'Inter', sans-serif;
     margin: 0;
     padding: 2rem;
-    background: #f9f9f9;
+    background: url('path/to/robotic-background.jpg') no-repeat center center fixed;
+    background-size: cover;
     color: #333;
     line-height: 1.6;
   }
@@ -36,14 +37,14 @@
   section {
     margin-bottom: 2rem;
     padding: 1rem;
-    background: white;
+    background: rgba(255, 255, 255, 0.9); /* Semi-transparent white background */
     border-radius: 8px;
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
   }
 
   ul {
-    list-style: none;
-    padding-left: 0;
+    list-style: disc; /* Adds bullet points */
+    padding-left: 1.5rem; /* Indent for bullet points */
   }
 
   ul li {
@@ -83,7 +84,7 @@
 <body>
 
 <header class="personal-info">
-  <img src="asset/Bagus_01.jpg" alt="Bagus Yunanto">
+  <img src="Bagus_01.jpg" alt="Bagus Yunanto">
   <h2>Bagus Yunanto</h2>
   <p>Ph.D(Eng) in Mechatronics</p>
   <p>Tokyo Metropolitan University</p>

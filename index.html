@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Bagus Yunanto - CV</title>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
 <style>
   /* Reset */
   * {
@@ -13,14 +14,18 @@
     padding: 0;
   }
 
+  html {
+    scroll-behavior: smooth;
+  }
+
   body {
     font-family: 'Inter', sans-serif;
     margin: 0;
     padding: 2rem;
-    background: url('path/to/robotic-background.jpg') no-repeat center center fixed;
-    background-size: cover;
+    background: #f9f9f9;
     color: #333;
     line-height: 1.6;
+    padding-top: 4rem; /* Adjust this value based on the height of the navigation bar */
   }
 
   h1, h2, h3 {
@@ -34,10 +39,21 @@
     margin-bottom: 2rem;
   }
 
+  h2 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+  }
+
+  p, li {
+    font-size: 1rem;
+    line-height: 1.8;
+  }
+
   section {
+    display: block; /* Ensure sections are visible */
     margin-bottom: 2rem;
     padding: 1rem;
-    background: rgba(255, 255, 255, 0.9); /* Semi-transparent white background */
+    background: white;
     border-radius: 8px;
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
   }
@@ -79,9 +95,75 @@
   .personal-info p {
     margin: 0.2rem 0;
   }
+
+  nav {
+    position: fixed; /* Fix the navigation bar at the top */
+    top: 0;
+    left: 0;
+    width: 100%; /* Make it span the full width of the page */
+    background: #288eee; /* Background color */
+    color: white;
+    padding: 1rem 0; /* Add some padding */
+    z-index: 1000; /* Ensure it stays above other elements */
+    text-align: center;
+  }
+
+  nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center; /* Center the menu items */
+    gap: 1.5rem; /* Add spacing between menu items */
+  }
+
+  nav ul li {
+    display: inline;
+  }
+
+  nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+  }
+
+  nav ul li a:hover {
+    text-decoration: underline;
+  }
+
+  /* Print Styles */
+  @media print {
+    body {
+      background: white;
+      color: black;
+    }
+
+    section {
+      box-shadow: none;
+      border: 1px solid #ccc;
+    }
+
+    button {
+      display: none; /* Hide buttons when printing */
+    }
+
+    nav {
+      display: none; /* Hide navigation when printing */
+    }
+  }
 </style>
 </head>
 <body>
+
+<nav>
+  <ul>
+    <li><a href="#about">About</a></li>
+    <li><a href="#education">Education</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#publications">Publications</a></li>
+  </ul>
+</nav>
 
 <header class="personal-info">
   <img src="Bagus_01.jpg" alt="Bagus Yunanto">
@@ -161,7 +243,7 @@
       </li>
       <li>
         Bagus Yunanto, Mao Ichimura, Asami Amemiya, Naoyuki Takesue: Dynamic modeling and experiment of robot with fins, 
-        日本機械学会ロボティクス・メカトロニクス講演会2023講演論文集, 1P1-B17, 2 pages, June 29, 2023. 
+        日本機械学会ロボティクス・メカトロニクス講演論文集, 1P1-B17, 2 pages, June 29, 2023. 
         DOI: <a href="https://doi.org/10.1299/jsmermd.2023.1P1-B17" target="_blank">10.1299/jsmermd.2023.1P1-B17</a>
       </li>
       <li>
@@ -180,6 +262,51 @@
   </section>
 </main>
 
+<footer style="text-align: center; margin-top: 2rem; padding: 1rem; background: #4CAF50; color: white;">
+  <p>© 2025 Bagus Yunanto</p>
+  <p>
+    <a href="https://github.com/ybagus89" style="color: white; text-decoration: none;">
+      <i class="fab fa-github"></i> GitHub
+    </a> |
+    <a href="https://www.linkedin.com/in/yunanto-bagus-b27a09162/" style="color: white; text-decoration: none;">
+      <i class="fab fa-linkedin"></i> LinkedIn
+    </a>
+  </p>
+</footer>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const sections = document.querySelectorAll('section');
+
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('in-view');
+      }
+    });
+  }, { threshold: 0.1 });
+
+  sections.forEach(section => observer.observe(section));
+});
+</script>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const menuLinks = document.querySelectorAll('nav a');
+  const menuLinks = document.querySelectorAll('nav a');
+  menuLinks.forEach(link => {
+    link.addEventListener('click', (e) => {
+      e.preventDefault(); // Prevent default anchor behavior
+      const targetId = link.getAttribute('href').substring(1);
+      const targetSection = document.getElementById(targetId);
+      const targetSection = document.getElementById(targetId);
+      if (targetSection) {
+        targetSection.scrollIntoView({ behavior: 'smooth' });
+      } targetSection.scrollIntoView({ behavior: 'smooth' });
+    });
+  }););
+}););
+</script>
+</script>
 </body>
 </html>
-
+</html>

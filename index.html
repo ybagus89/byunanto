@@ -193,9 +193,49 @@
   <section id="experience">
     <h2>Experience</h2>
     <ul>
-      <li>Research Assistant, Tokyo Metropolitan University (2021 - Present)</li>
-      <li>Lecturer, Politeknik Elektronika Negeri Surabaya (2018 - 2021)</li>
-      <li>Embedded Systems Engineer, XYZ Robotics (2013 - 2014)</li>
+      <li>
+        <strong>Research Assistant</strong>, Tokyo Metropolitan University (2021 - Present)
+      </li>
+      <li>
+        <strong>Lecturer</strong>, Politeknik Negeri Semarang (2018 - 2021)
+        <p>
+          • Instructed courses in Control-based Computing, Instrumentation, and Interface Communication.<br>
+          • Supervised over 20 students in electronic systems, embedded systems, and robotics projects, improving student engagement.<br>
+          • Collaborated with faculty on curriculum development, resulting in updated course content for modern technological advancements.
+        </p>
+      </li>
+      <li>
+        <strong>Lecturer</strong>, Politeknik Elektronika Negeri Surabaya (2018 - 2021)
+      </li>
+      <li>
+        <strong>Embedded Systems Engineer</strong>, XYZ Robotics (2013 - 2014)
+      </li>
+      <li>
+        <strong>Staff Support and Training</strong>, Innovative Electronic, Indonesia (2013 - 2017)
+        <p>
+          Delivered training sessions on robotics programming and electronic product use, enhancing customer satisfaction. Provided technical support for electronic systems, leading to improved product performance.
+        </p>
+      </li>
+      <li>
+        <strong>Trainer Robotic</strong>, IT-Smart Robotic and Coding Education, Indonesia (2009 - 2013)
+        <p>
+          Taught robotics to children and young adults, focusing on hands-on training and curriculum improvements, resulting in increased student project completion rates.
+        </p>
+      </li>
+    </ul>
+  </section>
+
+  <!-- Add Volunteer Experience Here -->
+  <section id="volunteer">
+    <h2>Volunteer Experience</h2>
+    <ul>
+      <li>
+        <strong>Conference Volunteer</strong>, 
+        <i>2024 IEEE International Conference on Robotics and Automation (ICRA 2024)</i> — April 2024 (1 month)
+        <p>
+          As a volunteer at the IEEE International Conference on Robotics and Automation (ICRA 2024), I supported various tasks such as registration, session assistance, and guiding attendees. This role provided networking opportunities with experts in robotics and automation, exposure to cutting-edge research, and insights into career development. I contributed to the smooth operation of one of the field’s most prestigious events.
+        </p>
+      </li>
     </ul>
   </section>
 
@@ -207,6 +247,16 @@
       <li>IoT Solutions</li>
       <li>Programming: Python, C++, MATLAB</li>
       <li>3D Printing and Prototyping</li>
+    </ul>
+  </section>
+
+  <!-- Add Memberships Section Here -->
+  <section id="memberships">
+    <h2>Memberships</h2>
+    <ul>
+      <li>The Japan Society of Mechanical Engineers (JSME)</li>
+      <li>The Institute of Electrical and Electronics Engineers (IEEE) Robotic and Automation Society</li>
+      <li>International Association of Engineers (IAENG)</li>
     </ul>
   </section>
 
@@ -292,21 +342,17 @@ document.addEventListener('DOMContentLoaded', () => {
 <script>
 document.addEventListener('DOMContentLoaded', () => {
   const menuLinks = document.querySelectorAll('nav a');
-  const menuLinks = document.querySelectorAll('nav a');
   menuLinks.forEach(link => {
     link.addEventListener('click', (e) => {
       e.preventDefault(); // Prevent default anchor behavior
       const targetId = link.getAttribute('href').substring(1);
       const targetSection = document.getElementById(targetId);
-      const targetSection = document.getElementById(targetId);
       if (targetSection) {
         targetSection.scrollIntoView({ behavior: 'smooth' });
-      } targetSection.scrollIntoView({ behavior: 'smooth' });
+      }
     });
-  }););
-}););
-</script>
+  });
+});
 </script>
 </body>
-</html>
 </html>
